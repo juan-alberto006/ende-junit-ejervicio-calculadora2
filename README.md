@@ -30,6 +30,6 @@ La única diferencia que hay respecto al resultado de las pruebas es que sumarPo
 | :--- | :--- | :--- | :--- |
 | **División exacta** | (18, 2) | 9 | Valor válido (Positivos) |
 | **Resultado negativo** | (10, -2) | -5 | Valor válido (Signos) |
-| **Dividendo cero** | (0, 9) | 0 | Valor 0 |
+| **Dividendo cero** | (0, 9) | 0 | Valor limite |
 | **División entera** | (15, 4) | 2 | Comportamiento truncado por el tipo de variable int |
 | **División por cero** | (6, 0) | OperacionNoValidaException | Error (Excepción controlada) |
