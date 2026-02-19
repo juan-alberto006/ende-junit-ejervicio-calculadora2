@@ -56,4 +56,16 @@ public class CalculadoraTest {
         assertEquals(OperacionNoValidaException.MSG, ex.getMessage());
 
     }
+   
+    @Test
+    @DisplayName("Probar la división con los casos del estudio de caja negra")
+    void dividirCasosCajaNegra() {
+        assertAll("Divisiones válidas",
+                () -> assertEquals(9, Calculadora.dividir(18, 2), "18 / 2 debería ser 9"),
+                () -> assertEquals(-5, Calculadora.dividir(10, -2), "10 / -2 debería ser -5"),
+                () -> assertEquals(0, Calculadora.dividir(0, 9), "0 / 9 debería ser 0"),
+                () -> assertEquals(3, Calculadora.dividir(15, 4), "15 / 4 debería ser 3 por truncamiento de int")
+        );
+    }
+  
 }

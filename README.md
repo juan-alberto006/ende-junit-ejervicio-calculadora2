@@ -14,9 +14,12 @@ En lugar de trabajar con variables inicializadas dentro del propio programa, los
 Al centrarse únicamente en la lógica de los métodos, el proyecto facilita la validación del comportamiento del código mediante pruebas unitarias, mejorando la mantenibilidad y reduciendo la probabilidad de errores en futuras modificaciones.
 
 2. Revisa las pruebas de la suma y comenta lo que te parezca de interés
-- Lo que me ha llamado la atención es que el test de la suma está súper limpio porque pasa de usar variables intermedias. En vez de andar creando el valor1, el valor2 y el esperado fuera, mete la llamada a la función directamente en el assertEquals. Al final, lo que ves es: 'quiero un 5 y llamo a la suma con 1 y 4', sin dar rodeos.
+- Lo que me ha llamado la atención es que el test de la suma está  limpio porque no se usan variables intermedias. En vez de andar creando el valor1, el valor2 y el esperado fuera, mete la llamada a la función directamente en el assertEquals.
 
-Además, lo bueno de usar el assertAll es que no se rinde. En un test normal, si la primera suma falla, el programa se para ahí y no sabes qué pasa con las demás. Aquí, al usar las lambdas (las flechitas ->), el test lanza todas las pruebas a la vez. Así, si la calculadora falla en una pero acierta en otra, te enteras de todo el pastel de golpe y no tienes que ir arreglando y probando una por una
+Lo bueno de usar el assertAll al contrario del test normal es que si la primera suma falla, el programa se para ahí y no sabes qué pasa con las demás. Aquí, al usar las flechitas ->, el test lanza todas las pruebas a la vez. Así, si la calculadora falla en una pero acierta en otra, te enteras de todo de golpe y no tienes que ir arreglando y probando una por una
+
+La única diferencia que hay respecto al resultado de las pruebas es que sumarPositivosMal da error debido al valor esperado, ya que el valor es de cuatro y, según las otras variables, debería ser cinco.
+
 
 3. Realiza un estudio de caja negra de la división e implementa las pruebas en junit: Se realizará en markdown.
 
@@ -26,6 +29,13 @@ Además, lo bueno de usar el assertAll es que no se rinde. En un test normal, si
 
 El alumno deberá hacer un fork de este proyecto e implementar la solución solicitada (preguntas y código).
 
+| Caso de Prueba | Entrada (Dividendo, Divisor) | Resultado Esperado | Tipo de prueba |
+| :--- | :--- | :--- | :--- |
+| **División exacta** | (18, 2) | 9 | Valor válido (Positivos) |
+| **Resultado negativo** | (10, -2) | -5 | Valor válido (Signos) |
+| **Dividendo cero** | (0, 9) | 0 | Valor frontera |
+| **División entera** | (15, 4) | 2 | Comportamiento truncado por el tipo de variable int |
+| **División por cero** | (6, 0) | OperacionNoValidaException | Error (Excepción controlada) |
 >Se deberá utilizar este fichero, y los artefactos de código del proyecto, para resolver el ejercicio.
 
 
