@@ -18,7 +18,7 @@ Al centrarse únicamente en la lógica de los métodos, el proyecto facilita la 
    
 -Lo que me ha llamado la atención es que el test de la suma está  limpio porque no se usan variables intermedias. En vez de andar creando el valor1, el valor2 y el esperado fuera, mete la llamada a la función directamente en el assertEquals.
 
-Lo bueno de usar el assertAll al contrario del test normal es que si la primera suma falla, el programa se para ahí y no sabes qué pasa con las demás. Aquí, al usar las flechitas ->, el test lanza todas las pruebas a la vez. Así, si la calculadora falla en una pero acierta en otra, te enteras de todo de golpe y no tienes que ir arreglando y probando una por una
+Lo bueno de usar el assertAll, a diferencia de un test normal, es que si la primera suma falla, el programa no se detiene ahí (lo que nos dejaría sin saber qué pasa con las demás). Aquí, al usar las lambdas (las flechitas ->), el test lanza todas las pruebas a la vez. Así, si la calculadora falla en una pero acierta en otra, te enteras de todo el "pastel" de golpe y no tienes que ir arreglando y probando una por una.
 
 La única diferencia que hay respecto al resultado de las pruebas es que sumarPositivosMal da error debido al valor esperado, ya que el valor es de cuatro y, según las otras variables, debería ser cinco.
 
