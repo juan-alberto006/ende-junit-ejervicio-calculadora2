@@ -58,14 +58,24 @@ public class CalculadoraTest {
     }
    
     @Test
-    @DisplayName("Probar la división con los casos del estudio de caja negra")
+    @DisplayName("Probar la división con los casos del estudio de caja negra menos la excepcion")
     void dividirCasosCajaNegra() {
+
+        
         assertAll("Divisiones válidas",
-                () -> assertEquals(9, Calculadora.dividir(18, 2), "18 / 2 debería ser 9"),
-                () -> assertEquals(-5, Calculadora.dividir(10, -2), "10 / -2 debería ser -5"),
-                () -> assertEquals(0, Calculadora.dividir(0, 9), "0 / 9 debería ser 0"),
-                () -> assertEquals(3, Calculadora.dividir(15, 4), "15 / 4 debería ser 3 por truncamiento de int")
-        );
-    }
+        // Se realizan todas las purebas validas, si son todas correctas saldra ok
+
+                () -> assertEquals(2,   Calculadora.dividir(10, 5),   "10 / 5 = 2"),
+                () -> assertEquals(-2,  Calculadora.dividir(-10, 5),  "-10 / 5 = -2"),
+                () -> assertEquals(-2,  Calculadora.dividir(10, -5),  "10 / -5 = -2"),
+                () -> assertEquals(2,   Calculadora.dividir(-10, -5), "-10 / -5 = 2"),
+                () -> assertEquals(0,   Calculadora.dividir(0, 5),    "0 / 5 = 0"),
+                () -> assertEquals(1,   Calculadora.dividir(1, 1),    "1 / 1 = 1"),
+                () -> assertEquals(-1,  Calculadora.dividir(-1, 1),   "-1 / 1 = -1"),
+                () -> assertEquals(-1,  Calculadora.dividir(1, -1),   "1 / -1 = -1"),
+                () -> assertEquals(10,  Calculadora.dividir(10, 1),   "10 / 1 = 10"),
+                () -> assertEquals(-10, Calculadora.dividir(10, -1),  "10 / -1 = -10"));
+     }
+
   
 }
