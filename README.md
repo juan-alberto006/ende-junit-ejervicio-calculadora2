@@ -14,6 +14,16 @@ En lugar de trabajar con variables inicializadas dentro del propio programa, los
 
 Al centrarse únicamente en la lógica de los métodos, el proyecto facilita la validación del comportamiento del código mediante pruebas unitarias, mejorando la mantenibilidad y reduciendo la probabilidad de errores en futuras modificaciones.
 
+¿Para qué usa JUnit una empresa?
+
+-JUnit es una herramienta muy extendida en el mundo Java y las empresas la incorporan en su día a día por motivos bastante prácticos.
+El más evidente es que ahorra tiempo. Cada vez que alguien del equipo modifica el código, las pruebas corren solas y avisan si algo dejó de funcionar, sin que nadie tenga que revisar nada a mano antes de que el problema llegue a los usuarios.
+
+También resulta útil cuando se incorpora gente nueva al proyecto. En lugar de pedir a alguien que explique cómo funciona cada parte del sistema, basta con mirar las pruebas para entender qué se espera de cada método. Son como una guía que se mantiene actualizada sola.
+Otro punto a favor es la tranquilidad que da a la hora de tocar código que ya funciona. Si necesitas mejorar algo o corregir un error, sabes que si metes la pata en otro sitio, JUnit te lo va a decir enseguida.
+
+Y por último, el hecho de que los métodos reciban los datos como parámetros en lugar de pedirlos por consola no es un capricho, sino una forma de trabajar que hace que todo sea más ordenado y fácil de probar, que es justo lo que se valora en un entorno profesional.
+
 2. Revisa las pruebas de la suma y comenta lo que te parezca de interés
    
 -Lo que me ha llamado la atención es que el test de la suma está  limpio porque no se usan variables intermedias. En vez de andar creando el valor1, el valor2 y el esperado fuera, mete la llamada a la función directamente en el assertEquals.
