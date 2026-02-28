@@ -25,11 +25,51 @@ La única diferencia que hay respecto al resultado de las pruebas es que sumarPo
 
 3. Realiza un estudio de caja negra de la división e implementa las pruebas en junit: Se realizará en markdown.
 
+## Particiones de equivalencia
 
-| Caso de Prueba | Entrada (Dividendo, Divisor) | Resultado Esperado | Tipo de prueba |
-| :--- | :--- | :--- | :--- |
-| **División exacta** | (18, 2) | 9 | Valor válido (Positivos) |
-| **Resultado negativo** | (10, -2) | -5 | Valor válido (Signos) |
-| **Dividendo cero** | (0, 9) | 0 | Valor limite |
-| **División entera** | (15, 4) | 2 | Comportamiento truncado por el tipo de variable int |
-| **División por cero** | (6, 0) | OperacionNoValidaException | Error (Excepción controlada) |
+Analizamos cada una de las dos variables del sistema para determinar sus clases de equivalencia.
+
+### Variable B (divisor) — la más crítica:
+
+| Clase | Valor | ¿Válida? |
+| :--- | :--- | :--- |
+| Clase 1 | b es número negativo (ej: -5) | Válida |
+| Clase 2 | b = 0 | Error |
+| Clase 3 | b es número positivo (ej: 5) | Válida |
+
+### Variable A (dividendo):
+
+| Clase | Valor | ¿Válida? |
+| :--- | :--- | :--- |
+| Clase 1 | a es número negativo (ej: -10) | Válida |
+| Clase 2 | a = 0 | Válida (resultado siempre es 0) |
+| Clase 3 | a es número positivo (ej: 10) | Válida |
+
+## Valores límite
+
+| Variable | Valor límite | Razón |
+| :--- | :---: | :--- |
+| b | -1 | Justo antes del cero por la izquierda |
+| b | 0 | El límite exacto del error |
+| b | 1 | Justo después del cero por la derecha |
+| a | -1 | Justo antes del cero por la izquierda |
+| a | 0 | Dividendo neutro |
+| a | 1 | Justo después del cero por la derecha |
+
+## Casos de prueba combinados
+
+| # | Dividendo (a) | Divisor (b) | Resultado esperado |
+| :-- | :---: | :---: | :--- |
+| 1 | 10 | 5 | 2 |
+| 2 | -10 | 5 | -2 |
+| 3 | 10 | -5 | -2 |
+| 4 | -10 | -5 | 2 |
+| 5 | 0 | 5 | 0 |
+| 6 | 10 | 0 | Error, genera una excepcion |
+| 7 | 0 | 0 | Error, genera una excepcion |
+| 8 | 1 | 1 | 1 |
+| 9 | -1 | 1 | -1 |
+| 10 | 1 | -1 | -1 |
+| 11 | 10 | 1 | 10 (límite divisor) |
+| 12 | 10 | -1 | -10 (límite divisor) |
+
