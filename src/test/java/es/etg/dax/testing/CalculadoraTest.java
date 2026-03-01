@@ -77,6 +77,15 @@ public class CalculadoraTest {
                 () -> assertEquals(10,  Calculadora.dividir(10, 1),   "10 / 1 = 10"),
                 () -> assertEquals(-10, Calculadora.dividir(10, -1),  "10 / -1 = -10"));
      }
+     @Test
+    @DisplayName("Probar la división siendo dividendo y divisor 0 ")
+    void dividirPorZeroZeroException() {
+        var ex = assertThrows(OperacionNoValidaException.class, () -> Calculadora.dividir(0, 0),
+        //Esta prueba comprueba que al dividir 0/0  lanza una excepcion controlada: OperacionNoValidaException
+                "La división de 0 / 0  no está permitida");
+        assertEquals(OperacionNoValidaException.MSG, ex.getMessage());
+
+    }
 
   
 }
