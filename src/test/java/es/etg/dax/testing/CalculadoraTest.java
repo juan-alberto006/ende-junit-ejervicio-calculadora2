@@ -64,6 +64,7 @@ public class CalculadoraTest {
         
         assertAll("Divisiones válidas",
         // Se realizan todas las purebas validas, si son todas correctas saldra ok
+        // No se realiza la division por cero porque se ya esta hecha con anterioridad (void        dividirPorZeroException())
 
                 () -> assertEquals(2,   Calculadora.dividir(10, 5),   "10 / 5 = 2"),
                 () -> assertEquals(-2,  Calculadora.dividir(-10, 5),  "-10 / 5 = -2"),
